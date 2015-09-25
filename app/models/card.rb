@@ -3,6 +3,8 @@ class Card < ActiveRecord::Base
   SUITS = %w(hearts clubs spades diamonds)
   POINTS = %w(1 2 3 4 5 6 7 8 9 10 50)
 
+  has_many :decks
+
   validates :value,
     presence: true,
     inclusion: { in: VALUES }
