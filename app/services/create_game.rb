@@ -8,6 +8,6 @@ class CreateGame
   private
 
   def generate_deck
-    # deck = CreateDeck.new.call
+
   end
 end
