@@ -3,7 +3,7 @@ class Card < ActiveRecord::Base
   SUITS = %w(hearts clubs spades diamonds)
   POINTS = %w(1 2 3 4 5 6 7 8 9 10 50)
 
-  has_many :decks, dependent: :restrict_with_exception
+  has_many :deck_cards, dependent: :restrict_with_exception
 
   validates :value,
     presence: true,
