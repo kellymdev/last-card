@@ -4,6 +4,7 @@ class Card < ActiveRecord::Base
   POINTS = %w(1 2 3 4 5 6 7 8 9 10 50)
 
   has_many :deck_cards, dependent: :restrict_with_exception
+  has_many :games, through: :deck_cards
 
   validates :value,
     presence: true,
