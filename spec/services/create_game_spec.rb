@@ -10,23 +10,16 @@ RSpec.describe CreateGame, type: :service do
   end
 
   describe "#call" do
+    subject(:game) { CreateGame.new.call }
 
     context "game creation" do
-      subject(:game) { CreateGame.new.call }
-
       it { is_expected.to be_valid }
     end
 
     context "deck creation" do
-      let(:game) { CreateGame.new.call }
-
       subject(:deck) { game.deck_cards.count }
 
       it { is_expected.to eq Game::DEFAULT_DECK_SIZE}
-
-      # it "creates a deck of cards for the game" do
-      #   expect(game.deck_cards.count).to eq(Game::DEFAULT_DECK_SIZE)
-      # end
     end
   end
 end
