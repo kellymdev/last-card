@@ -1,5 +1,6 @@
 class Player < ActiveRecord::Base
   belongs_to :game
+  has_many :hands, dependent: :destroy
 
   validates :name,
     presence: true,
