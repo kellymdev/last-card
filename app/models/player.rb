@@ -8,4 +8,7 @@ class Player < ActiveRecord::Base
 
   validates :score,
     numericality: true
+
+  validates :is_computer,
+    default: false
 end
