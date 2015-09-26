@@ -1,13 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CreateGame, type: :service do
-  before do
-    Card::SUITS.each do |suit|
-      Card::VALUES.each do |value|
-        Card.create!(suit: suit, value: value, points: 1)
-      end
-    end
-  end
+  before { create_cards }
 
   describe "#call" do
     subject(:game) { CreateGame.new.call }

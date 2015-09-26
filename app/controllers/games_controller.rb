@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def show
-    @game = Game.find(params[:id])
+    find_game
   end
 
   def new
@@ -10,5 +10,18 @@ class GamesController < ApplicationController
   def create
     @game = CreateGame.new.call
     redirect_to @game
+  end
+
+  def deal
+    find_game
+    DealDeck.new.call(@game)
+
+    redirect_to @game
+  end
+
+  private
+
+  def find_game
+    @game ||= Game.find(params[:id])
   end
 end

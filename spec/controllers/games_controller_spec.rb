@@ -28,4 +28,19 @@ RSpec.describe GamesController, type: :controller do
       expect { post :create }.to change { Game.count }.by 1
     end
   end
+
+  describe "get #deal" do
+    before { create_cards }
+
+    context "redirects to the game" do
+      let(:game) { CreateGame.new.call }
+      let!(:player) { Player.new(name: "Jessica") }
+
+      before { game.players << player }
+
+      subject { get :deal, id: game.id }
+
+      it { is_expected.to redirect_to game }
+    end
+  end
 end
