@@ -1,5 +1,7 @@
 class DeckCard < ActiveRecord::Base
+  DEFAULT_HAND_SIZE = 8
+
   belongs_to :card
   belongs_to :game
-  has_many :hands, dependent: :restrict_with_exception
+  belongs_to :player
 end
