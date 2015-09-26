@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   def show
     find_game
+    find_player
   end
 
   def new
@@ -23,5 +24,9 @@ class GamesController < ApplicationController
 
   def find_game
     @game ||= Game.find(params[:id])
+  end
+
+  def find_player
+    @player = @game.players.where(is_computer: false).first
   end
 end

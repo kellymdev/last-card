@@ -1,0 +1,11 @@
+<% if @player.deck_cards.size > 0 %>
+  <h3>Your cards:</h3>
+
+  <ul>
+    <%= @player.deck_cards.each do |deck_card| %>
+      <%= deck_card.card.value %> <%= deck_card.card.suit %>
+    <% end %>
+  </ul>
+<% else %>
+  <%= link_to "Deal Cards", deal_game_path(@game) %>
+<% end %>

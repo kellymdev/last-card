@@ -2,9 +2,7 @@ class DealDeck
   def call(game)
     @game = game
     shuffle_cards
-    DeckCard::DEFAULT_HAND_SIZE.times do
-      assign_card_to_players
-    end
+    DeckCard::DEFAULT_HAND_SIZE.times { assign_a_card_to_each_player }
   end
 
   private
@@ -17,7 +15,7 @@ class DealDeck
     end
   end
 
-  def assign_card_to_players
+  def assign_a_card_to_each_player
     @game.players.each do |player|
       deck_card = DeckCard.where(player_id: nil).order(:sequence_number).first
       deck_card.player = player
