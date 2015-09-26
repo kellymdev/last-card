@@ -9,12 +9,11 @@ class CreateGame
   private
 
   def create_deck
-    Card.all.each do |card|
-      @game.cards << card
-    end
+    Card.all.each { |card| @game.cards << card }
   end
 
   def create_computer_player
-    @game.players << Player.new(name: "Bella", is_computer: true)
+    names = %w(Bella Dave Jackie Sam Stephanie Steve)
+    @game.players << Player.new(name: names.sample, is_computer: true)
   end
 end
