@@ -1,1 +1,10 @@
-<%= link_to "Add Player", new_game_player_path(@game) unless @game.players.count < 2 %>
+<h3>Players:</h3>
+<ul>
+  <% @game.players.each do |player| %>
+    <li><%= player.name %><%= " (computer)" if player.is_computer == true %></li>
+  <% end %>
+
+  <% if @game.players.count < 2 %>
+    <li><%= link_to "Add Player", new_game_player_path(@game) %></li>
+  <% end %>
+</ul>
