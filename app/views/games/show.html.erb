@@ -8,3 +8,5 @@
     <li><%= link_to "Add Player", new_game_player_path(@game) %></li>
   <% end %>
 </ul>
+
+<%= render "deck_cards" if @player %>
