@@ -17,7 +17,8 @@ RSpec.describe PlayersController, type: :controller do
       end
 
       it "creates a new player" do
-        expect { post :create, game_id: game.id, player: { name: "Jess" } }.to change { Player.count }.by 1
+        expect { post :create, game_id: game.id, player: { name: "Jess" } }
+          .to change { Player.count }.by 1
       end
     end
 

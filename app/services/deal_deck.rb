@@ -9,7 +9,7 @@ class DealDeck
 
   def shuffle_cards
     cards = @game.deck_cards.shuffle
-    cards.each_with_index do |card, sequence_number=1|
+    cards.each_with_index do |card, sequence_number = 1|
       card.sequence_number = sequence_number
       card.save!
     end

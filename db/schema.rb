@@ -34,6 +34,10 @@ ActiveRecord::Schema.define(version: 20150926080435) do
     t.boolean  "has_been_played", default: false, null: false
   end
 
+  add_index "deck_cards", ["card_id"], name: "index_deck_cards_on_card_id", using: :btree
+  add_index "deck_cards", ["game_id"], name: "index_deck_cards_on_game_id", using: :btree
+  add_index "deck_cards", ["player_id"], name: "index_deck_cards_on_player_id", using: :btree
+
   create_table "games", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,5 +51,7 @@ ActiveRecord::Schema.define(version: 20150926080435) do
     t.datetime "updated_at",                  null: false
     t.boolean  "is_computer", default: false, null: false
   end
+
+  add_index "players", ["game_id"], name: "index_players_on_game_id", using: :btree
 
 end

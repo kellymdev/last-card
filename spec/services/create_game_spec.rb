@@ -17,7 +17,7 @@ RSpec.describe CreateGame, type: :service do
     context "deck creation" do
       subject(:deck) { game.deck_cards.count }
 
-      it { is_expected.to eq Game::DEFAULT_DECK_SIZE}
+      it { is_expected.to eq Game::DEFAULT_DECK_SIZE }
     end
 
     context "computer player creation" do
