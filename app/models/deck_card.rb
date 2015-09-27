@@ -4,4 +4,6 @@ class DeckCard < ActiveRecord::Base
   belongs_to :card
   belongs_to :game
   belongs_to :player
+
+  delegate :value, :suit, :points, to: :card
 end

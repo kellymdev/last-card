@@ -3,7 +3,7 @@
 
   <ul>
     <%= @player.deck_cards.each do |deck_card| %>
-      <%= deck_card.card.value %> <%= deck_card.card.suit %>
+      <%= deck_card.value %> <%= deck_card.suit %>
     <% end %>
   </ul>
 <% else %>

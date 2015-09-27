@@ -40,7 +40,7 @@ RSpec.describe GamesController, type: :controller do
 
       subject { get :deal, id: game.id }
 
-      it { is_expected.to redirect_to game }
+      it { is_expected.to redirect_to game_path(game) }
     end
   end
 end
