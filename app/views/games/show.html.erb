@@ -9,4 +9,6 @@
   <% end %>
 </ul>
 
+<%= render "deck_cards" if @game.deck_cards.size > 0 %>
+
 <%= render "player_cards" if @player %>
