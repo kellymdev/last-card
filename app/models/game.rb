@@ -4,4 +4,8 @@ class Game < ActiveRecord::Base
   has_many :deck_cards, dependent: :destroy
   has_many :cards, through: :deck_cards
   has_many :players, dependent: :destroy
+
+  def cards_in_deck
+    deckcards.where(has_been_played: false, player_id: nil)
+  end
 end
