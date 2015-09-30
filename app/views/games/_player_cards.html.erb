@@ -2,8 +2,8 @@
   <h3>Your cards:</h3>
 
   <ul>
-    <%= @player.deck_cards.each do |deck_card| %>
-      <%= deck_card.value %> <%= deck_card.suit %>
+    <% @player.deck_cards.each do |deck_card| %>
+      <li><%= deck_card.value %> <%= deck_card.suit %></li>
     <% end %>
   </ul>
 <% else %>
