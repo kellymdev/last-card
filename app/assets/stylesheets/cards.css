@@ -1,7 +1,12 @@
-.card {
-  width: 70px;
-  height: 100px;
+.card,
+.deck {
   display: inline-block;
+}
+
+.card {
+  width: 85px;
+  height: 115px;
+  margin: 7px;
   border: 1px solid black;
   border-radius: 3px;
 }
