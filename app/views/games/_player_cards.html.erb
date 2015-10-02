@@ -2,7 +2,7 @@
   <h3>Your cards:</h3>
 
   <% @player.deck_cards.each do |deck_card| %>
-    <div class="card <%= deck_card.suit %>">
+    <div class="card <%= deck_card.suit %> hand">
       <%= deck_card.value %> <%= deck_card.suit %>
     </div>
   <% end %>
