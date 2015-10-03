@@ -22,7 +22,12 @@
   background-color: pink;
 }
 
+.deck,
+.face-up {
+  border: 2px solid black;
+}
+
 .face-up-highlight {
   background-color: yellow;
-  border: 3px solid blue;
+  border: 2px solid blue;
 }
