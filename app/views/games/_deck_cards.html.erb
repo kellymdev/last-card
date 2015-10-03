@@ -1,0 +1,9 @@
+<h3>Deck:</h3>
+
+<div class="card deck">
+  Deck
+</div>
+
+<div class="card <%= @game.next_card.suit %> value<%= @game.next_card.value %> face-up" href="/games/<%= @game.id %>/players/<%= @player.id %>/turns">
+  <%= @game.next_card.value %> <%= @game.next_card.suit %>
+</div>
