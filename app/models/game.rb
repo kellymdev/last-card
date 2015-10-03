@@ -4,8 +4,9 @@ class Game < ActiveRecord::Base
   has_many :deck_cards, dependent: :destroy
   has_many :cards, through: :deck_cards
   has_many :players, dependent: :destroy
+  has_many :turns, dependent: :restrict_with_exception
 
-  def next_card
+  def next_card_from_deck
     cards_in_deck.order(:sequence_number).first
   end
 

@@ -4,6 +4,8 @@
   Deck
 </div>
 
-<div class="card <%= @game.next_card.suit %> value<%= @game.next_card.value %> face-up" href="/games/<%= @game.id %>/players/<%= @player.id %>/turns">
-  <%= @game.next_card.value %> <%= @game.next_card.suit %>
-</div>
+<% if @player && @player.deck_cards.size > 0 %>
+  <div class="card <%= @game.turns.last.deck_card.suit %> value<%= @game.turns.last.deck_card.value %> face-up" href="/games/<%= @game.id %>/players/<%= @player.id %>/turns">
+    <%= @game.turns.last.deck_card.value %> <%= @game.turns.last.deck_card.suit %>
+  </div>
+<% end %>
