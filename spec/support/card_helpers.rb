@@ -6,4 +6,8 @@ module CardHelpers
       end
     end
   end
+
+  def create_identical_cards
+    52.times { Card.create!(suit: 'hearts', value: '3', points: 1) }
+  end
 end
