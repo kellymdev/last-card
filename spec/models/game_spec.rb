@@ -6,7 +6,7 @@ RSpec.describe Game, type: :model do
   let(:game) { CreateGame.new.call }
 
   describe "#next_card" do
-    subject { game.next_card }
+    subject { game.next_card_from_deck }
 
     it { is_expected.to eq card.deck_cards.first }
   end
