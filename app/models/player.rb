@@ -1,6 +1,7 @@
 class Player < ActiveRecord::Base
   belongs_to :game
   has_many :deck_cards, dependent: :restrict_with_exception
+  has_many :turns, dependent: :destroy
 
   validates :name,
     presence: true,
