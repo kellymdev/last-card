@@ -31,3 +31,11 @@
   background-color: yellow;
   border: 2px solid blue;
 }
+
+.selected {
+  border: 2px solid pink;
+}
+
+.placed {
+  border: 2px solid green;
+}
