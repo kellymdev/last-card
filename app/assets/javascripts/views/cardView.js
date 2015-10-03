@@ -5,11 +5,15 @@ CardView.prototype.addDraggableToCards = function() {
   $('.hand').draggable({
     start: function(event, ui) {
       $(this).addClass('selected');
+      $(this).removeClass('placed');
+    },
+    stop: function(event, ui) {
+      $(this).removeClass('selected');
     }
   });
 };
 
-CardView.prototype.addDroppableToDeck = function() {
+CardView.prototype.addDroppableToDeck = function(onDropFunction) {
   $(".face-up").droppable({
     over: function(event, ui) {
       $(this).addClass('face-up-highlight');
@@ -19,7 +23,8 @@ CardView.prototype.addDroppableToDeck = function() {
     },
     drop: function(event, ui) {
       $('.selected').addClass('placed');
-      $('.selected').removeClass('selected');
+      console.log(ui.helper);
+      // onDropFunction(ui.helper);
     }
   });
 };
