@@ -1,16 +1,19 @@
 function CardView() {
 }
 
-CardView.prototype.setCardsDraggable = function() {
+CardView.prototype.addDraggableToCards = function() {
   var $card = $('.hand');
 
   $card.draggable();
 };
 
-CardView.prototype.setFaceUpDeckAsDroppable = function() {
+CardView.prototype.addDroppableToDeck = function() {
   $(".face-up").droppable({
-    drop: function(event, ui) {
+    over: function(event, ui) {
       $(this).addClass("face-up-highlight");
+    },
+    out: function(event, ui) {
+      $(this).removeClass("face-up-highlight");
     }
   });
 };

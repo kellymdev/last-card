@@ -4,3 +4,6 @@ before_script:
 language: ruby
 rvm:
   - 2.2.0
+branches:
+  only:
+    - master

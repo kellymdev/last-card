@@ -4,9 +4,9 @@ function CardController() {
 }
 
 CardController.prototype.makeCardsDraggable = function() {
-  this.cardView.setCardsDraggable();
+  this.cardView.addDraggableToCards();
 };
 
 CardController.prototype.makeDeckDroppable = function() {
-  this.cardView.setFaceUpDeckAsDroppable();
+  this.cardView.addDroppableToDeck();
 };
