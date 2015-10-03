@@ -23,7 +23,7 @@ class GamesController < ApplicationController
   private
 
   def find_game
-    @game ||= Game.find(params[:id])
+    @game ||= GamePresenter.new(Game.find(params[:id]))
   end
 
   def find_player
