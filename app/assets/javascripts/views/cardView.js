@@ -23,8 +23,9 @@ CardView.prototype.addDroppableToDeck = function(onDropFunction) {
     },
     drop: function(event, ui) {
       $('.selected').addClass('placed');
-      console.log(ui.helper);
-      // onDropFunction(ui.helper);
+      var url = $(this).attr('href');
+      var cardId = $(ui.helper).attr('id');
+      onDropFunction(url, cardId);
     }
   });
 };
