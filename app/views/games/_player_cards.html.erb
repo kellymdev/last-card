@@ -1,7 +1,7 @@
 <% if @player.deck_cards.size > 0 %>
   <h3>Your cards:</h3>
 
-  <% @player.deck_cards.each do |deck_card| %>
+  <% @player.current_hand.each do |deck_card| %>
     <div id="<%= deck_card.id %>" class="card <%= deck_card.suit %> value<%= deck_card.value %> hand">
       <%= deck_card.value %> <%= deck_card.suit %>
     </div>
