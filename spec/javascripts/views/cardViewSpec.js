@@ -26,7 +26,7 @@ describe("CardView", function() {
     });
 
     it("allows the dragstart event to be triggered", function() {
-      spyEvent = spyOnEvent('.hand', "dragstart");
+      var spyEvent = spyOnEvent('.hand', "dragstart");
       $('.hand').trigger("dragstart");
 
       expect("dragstart").toHaveBeenTriggeredOn('.hand');
@@ -36,7 +36,7 @@ describe("CardView", function() {
     it("allows the dragstop event to be triggered", function() {
       $('.hand').addClass('selected');
 
-      spyEvent = spyOnEvent('.hand', "dragstop");
+      var spyEvent = spyOnEvent('.hand', "dragstop");
       $('.hand').trigger("dragstop");
 
       expect("dragstop").toHaveBeenTriggeredOn('.hand');
@@ -57,7 +57,7 @@ describe("CardView", function() {
     });
 
     it("allows the dropover event to be triggered", function() {
-      spyEvent = spyOnEvent('.face-up', "dropover");
+      var spyEvent = spyOnEvent('.face-up', "dropover");
       $('.face-up').trigger("dropover");
 
       expect("dropover").toHaveBeenTriggeredOn('.face-up');
@@ -65,10 +65,18 @@ describe("CardView", function() {
     });
 
     it("allows the dropout event to be triggered", function() {
-      spyEvent = spyOnEvent('.face-up', "dropout");
+      var spyEvent = spyOnEvent('.face-up', "dropout");
       $('.face-up').trigger("dropout");
 
       expect("dropout").toHaveBeenTriggeredOn('.face-up');
+      expect(spyEvent).toHaveBeenTriggered();
+    });
+
+    it("allows the drop event to be triggered", function() {
+      var spyEvent = spyOnEvent('.face-up', "drop");
+      $('.face-up').trigger("drop");
+
+      expect("drop").toHaveBeenTriggeredOn('.face-up');
       expect(spyEvent).toHaveBeenTriggered();
     });
   });
