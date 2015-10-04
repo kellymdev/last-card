@@ -4,7 +4,10 @@ class TurnsController < ApplicationController
 
   def create
     if ValidateTurn.new.call(@game, @deck_card.suit, @deck_card.value)
+      @deck_card.has_been_played = true
+      @deck_card.save!
       Turn.create!(game_id: params[:game_id], deck_card_id: @deck_card.id, player_id: params[:player_id] )
+
       render json: {
                     card_for_deck: {
                       suit: @game.turns.last.deck_card.suit,
@@ -17,7 +20,7 @@ class TurnsController < ApplicationController
                     }
                   }
     else
-      render json: { error: "Invalid turn" }
+      render json: { error: "Invalid suit or value" }
     end
   end
 
