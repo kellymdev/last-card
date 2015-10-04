@@ -9,4 +9,8 @@ class Player < ActiveRecord::Base
 
   validates :score,
     numericality: true
+
+  def current_hand
+    deck_cards.where(has_been_played: false)
+  end
 end
