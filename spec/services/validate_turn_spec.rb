@@ -28,6 +28,13 @@ RSpec.describe ValidateTurn, type: :service do
       it { is_expected.to be true }
     end
 
+    context "with a value of 8" do
+      let(:suit) { "spades" }
+      let(:value) { "8" }
+
+      it { is_expected.to be true }
+    end
+
     context "when the suit and value don't match" do
       let(:suit) { "diamonds" }
       let(:value) { "10" }
