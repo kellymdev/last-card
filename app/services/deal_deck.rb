@@ -27,6 +27,7 @@ class DealDeck
   def turn_first_card
     card = @game.next_card_from_deck
     card.has_been_played = true
+    card.save!
     Turn.create!(game_id: @game.id, deck_card_id: card.id)
   end
 end
