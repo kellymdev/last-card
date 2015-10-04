@@ -1,7 +1,7 @@
 class ValidateTurn
   def call(game, suit, value)
     @game = game
-    matches_value?(value) || matches_suit?(suit) || value_is_eight?(value)
+    matches_suit?(suit) || matches_value?(value) || value_is_eight?(value)
   end
 
   private
