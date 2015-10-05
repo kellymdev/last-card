@@ -8,5 +8,5 @@ CardController.prototype.makeCardsDraggable = function() {
 };
 
 CardController.prototype.makeDeckDroppable = function() {
-  this.cardView.addDroppableToDeck(this.cardModel.submitTurn);
+  this.cardView.addDroppableToDeck(this.cardModel.submitTurn, this.cardView.displayNewCards, this.cardView.displayInvalidTurnError);
 };

@@ -1,11 +1,13 @@
 <% if @player.deck_cards.size > 0 %>
   <h3>Your cards:</h3>
 
-  <% @player.current_hand.each do |deck_card| %>
-    <div id="<%= deck_card.id %>" class="card <%= deck_card.suit %> value<%= deck_card.value %> hand">
-      <%= deck_card.value %> <%= deck_card.suit %>
-    </div>
-  <% end %>
+  <div class="player-hand">
+    <% @player.current_hand.each do |deck_card| %>
+      <div id="<%= deck_card.id %>" class="card <%= deck_card.suit %> value<%= deck_card.value %> hand">
+        <%= deck_card.value %> <%= deck_card.suit %>
+      </div>
+    <% end %>
+  </div>
 <% else %>
   <%= link_to "Deal Cards", deal_game_path(@game) %>
 <% end %>

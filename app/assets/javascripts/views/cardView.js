@@ -13,7 +13,7 @@ CardView.prototype.addDraggableToCards = function() {
   });
 };
 
-CardView.prototype.addDroppableToDeck = function(onDropFunction) {
+CardView.prototype.addDroppableToDeck = function(onDropFunction, successFunction, errorFunction) {
   $(".face-up").droppable({
     over: function(event, ui) {
       $(this).addClass('face-up-highlight');
@@ -25,7 +25,25 @@ CardView.prototype.addDroppableToDeck = function(onDropFunction) {
       $('.selected').addClass('placed');
       var url = $(this).attr('href');
       var cardId = $(ui.helper).attr('id');
-      onDropFunction(url, cardId);
+      onDropFunction(url, cardId, successFunction, errorFunction);
     }
   });
+};
+
+CardView.prototype.displayNewCards = function(data) {
+  $('.placed').css({ display: "none" });
+  $('.face-up').css({ display: "none" });
+  $('.face-up').removeClass('face-up');
+
+  var deckCardHtml = '<div class="card ' + data.card_for_deck.suit + ' value' + data.card_for_deck.value + ' face-up' + '">' +
+      data.card_for_deck.value + ' ' + data.card_for_deck.suit +
+    '</div>';
+
+  $('.deck-cards').append(deckCardHtml);
+
+  var playerCardHtml = '<div id="' + data.card_for_player.deck_card_id + ' class="card ' + data.card_for_player.suit + ' value' + data.card_for_player.value + ' hand">' +
+    data.card_for_player.value + ' ' + data.card_for_player.suit +
+    '</div>';
+
+  $('.player-hand').append(playerCardHtml);
 };
