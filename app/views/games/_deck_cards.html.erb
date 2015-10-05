@@ -1,11 +1,13 @@
 <h3>Deck:</h3>
 
-<div class="card deck">
-  Deck
-</div>
-
-<% if @player && @player.deck_cards.size > 0 %>
-  <div class="card <%= @game.suit_for_last_turn %> value<%= @game.value_for_last_turn %> face-up" href="/games/<%= @game.id %>/players/<%= @player.id %>/turns">
-    <%= @game.value_for_last_turn %> <%= @game.suit_for_last_turn %>
+<div class="deck-cards">
+  <div class="card deck">
+    Deck
   </div>
-<% end %>
+
+  <% if @player && @player.deck_cards.size > 0 %>
+    <div class="card <%= @game.suit_for_last_turn %> value<%= @game.value_for_last_turn %> face-up" href="/games/<%= @game.id %>/players/<%= @player.id %>/turns">
+      <%= @game.value_for_last_turn %> <%= @game.suit_for_last_turn %>
+    </div>
+  <% end %>
+</div>
