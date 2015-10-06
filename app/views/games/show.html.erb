@@ -1,4 +1,8 @@
 <h3>Players:</h3>
+
+<div class="errors">
+</div>
+
 <ul>
   <% @game.players.each do |player| %>
     <li><%= player.name %><%= " (computer)" if player.is_computer == true %></li>

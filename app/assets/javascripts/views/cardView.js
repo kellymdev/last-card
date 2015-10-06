@@ -49,5 +49,7 @@ CardView.prototype.displayNewCards = function(data) {
 };
 
 CardView.prototype.displayInvalidTurnError = function(errorMessage) {
-  console.log(errorMessage);
+  var errorHtml = '<p>' + errorMessage.error + '</p>';
+
+  $('.errors').append(errorHtml);
 };

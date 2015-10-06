@@ -132,4 +132,20 @@ describe("CardView", function() {
       expect($('.card.clubs.value2.hand')).toBeInDOM();
     });
   });
+
+  describe("displayInvalidTurnError", function() {
+    beforeEach(function() {
+      var errorHtml = '<div class="errors">' +
+                      '</div>';
+      $('#content').append(errorHtml);
+
+      var errorMessage = { "error": "Invalid move" };
+
+      view.displayInvalidTurnError(errorMessage);
+    });
+
+    it("displays the specified error message", function() {
+      expect($('.errors')).toHaveText('Invalid move');
+    });
+  });
 });
