@@ -80,4 +80,56 @@ describe("CardView", function() {
       expect(spyEvent).toHaveBeenTriggered();
     });
   });
+
+  describe("displayNewCards", function() {
+    beforeEach(function() {
+      var deckHtml = '<div class="deck-cards">' +
+                    '<div class="card hearts value6 face-up">' +
+                    '</div>' +
+                  '</div>';
+      $('#content').append(deckHtml);
+
+      var placedCardHtml = '<div id="1" class="card hearts placed value10 hand">' +
+          '10 hearts' +
+        '</div>';
+      $('#content').append(placedCardHtml);
+
+      var playerHandHtml = '<div class="player-hand">' +
+                            '</div>';
+      $('#content').append(playerHandHtml);
+
+      var data = {
+                    "card_for_deck": {
+                      "suit": "hearts",
+                      "value": "10"
+                    },
+                    "card_for_player": {
+                      "deck_card_id": 5,
+                      "suit": "clubs",
+                      "value": "2"
+                    }
+                  };
+      view.displayNewCards(data);
+    });
+
+    it("hides the placed card", function() {
+      expect($('.placed')).toBeHidden();
+    });
+
+    it("removes the .face-up class from the previous deck card", function() {
+      expect($('.hearts.value6')).not.toHaveClass('.face-up');
+    });
+
+    it("hides the previous deck card", function() {
+      expect($('.hearts.value6')).toBeHidden();
+    });
+
+    it("adds the previous played card to the deck", function() {
+      expect($('.card.hearts.value10.face-up')).toBeInDOM();
+    });
+
+    it("adds the new card to the players hand", function() {
+      expect($('.card.clubs.value2.hand')).toBeInDOM();
+    });
+  });
 });

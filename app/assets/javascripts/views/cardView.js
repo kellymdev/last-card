@@ -41,9 +41,13 @@ CardView.prototype.displayNewCards = function(data) {
 
   $('.deck-cards').append(deckCardHtml);
 
-  var playerCardHtml = '<div id="' + data.card_for_player.deck_card_id + ' class="card ' + data.card_for_player.suit + ' value' + data.card_for_player.value + ' hand">' +
+  var playerCardHtml = '<div id="' + data.card_for_player.deck_card_id + '" class="card ' + data.card_for_player.suit + ' value' + data.card_for_player.value + ' hand">' +
     data.card_for_player.value + ' ' + data.card_for_player.suit +
     '</div>';
 
   $('.player-hand').append(playerCardHtml);
+};
+
+CardView.prototype.displayInvalidTurnError = function(errorMessage) {
+  console.log(errorMessage);
 };
