@@ -2,5 +2,8 @@ $(document).ready(function() {
   var cardController = new CardController();
 
   cardController.makeCardsDraggable();
-  cardController.makeDeckDroppable();
+
+  $('.player-hand').on('mousedown', '.card.hand', function() {
+    cardController.makeDeckDroppable();
+  });
 });
