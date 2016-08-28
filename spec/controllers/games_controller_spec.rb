@@ -6,7 +6,7 @@ RSpec.describe GamesController, type: :controller do
   describe "get #show" do
     let(:game) { CreateGame.new.call }
 
-    subject { get :show, id: game.id }
+    subject { get :show, params: { id: game.id } }
 
     it { is_expected.to render_template :show }
   end
@@ -38,7 +38,7 @@ RSpec.describe GamesController, type: :controller do
 
       before { game.players << player }
 
-      subject { get :deal, id: game.id }
+      subject { get :deal, params: { id: game.id } }
 
       it { is_expected.to redirect_to game_path(game) }
     end

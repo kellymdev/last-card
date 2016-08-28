@@ -9,11 +9,11 @@ RSpec.describe TurnsController, type: :controller do
 
     context "valid turn" do
       it "increases the number of turns by one" do
-        expect { post :create, game_id: game.id, player_id: player.id, placed_card: { id: game.deck_cards.last.id } }.to change { Turn.count }.by 1
+        expect { post :create, params: { game_id: game.id, player_id: player.id, placed_card: { id: game.deck_cards.last.id } } }.to change { Turn.count }.by 1
       end
 
       it "returns the played card and the new card for the player as json" do
-        post :create, game_id: game.id, player_id: player.id, placed_card: { id: game.deck_cards.last.id }
+        post :create, params: { game_id: game.id, player_id: player.id, placed_card: { id: game.deck_cards.last.id } }
 
         next_card = game.deck_cards.where(has_been_played:false, player_id: nil).order(:sequence_number).first
 
@@ -40,7 +40,7 @@ RSpec.describe TurnsController, type: :controller do
       end
 
       it "returns an error message" do
-        post :create, game_id: game.id, player_id: player.id, placed_card: { id: @card.id }
+        post :create, params: { game_id: game.id, player_id: player.id, placed_card: { id: @card.id } }
 
         error = { error: "Invalid move" }
 
